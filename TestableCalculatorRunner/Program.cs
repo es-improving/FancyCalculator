@@ -12,8 +12,8 @@ namespace TestableCalculatorRunner
             Console.WriteLine("Give me math or give me death!");
             string input = Console.ReadLine();
 
-            string output = calculator.Evaluate(input);
-            Console.WriteLine(output);
+            var output = calculator.Evaluate(input);
+            Console.WriteLine(output.Result);
         }
     }
 }
