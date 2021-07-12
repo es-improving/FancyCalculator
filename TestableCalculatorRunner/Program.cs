@@ -13,7 +13,15 @@ namespace TestableCalculatorRunner
             string input = Console.ReadLine();
 
             var output = calculator.Evaluate(input);
-            Console.WriteLine(output.Result);
+
+            if (String.IsNullOrWhiteSpace(output.ErrorMessage))
+            {
+                Console.WriteLine(output.Result);
+            }
+            else
+            {
+                Console.WriteLine("\u001b[31m" + output.ErrorMessage + "\u001b[0m");
+            }
         }
     }
 }
