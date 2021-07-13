@@ -8,6 +8,8 @@ namespace CalculatorCore
 {
     public class Calculator
     {
+        private const string _VALID_OPERATORS = "+-*/";
+
         public EvaluationResult Evaluate(string input)
         {
             string[] expressionBits = input.Split(" ");
@@ -26,7 +28,7 @@ namespace CalculatorCore
 
             string op = expressionBits[1];
 
-            if ("+-*/".IndexOf(op) == -1)
+            if (_VALID_OPERATORS.Contains(op) == false || op.Length != 1)
             {
                 return new EvaluationResult { ErrorMessage = $"The operation '{op}' is invalid. You must use one of the following: + - * /" };
             }

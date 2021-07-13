@@ -65,5 +65,12 @@ namespace CalculatorCore.Tests
             var result = _calc.Evaluate("80 minus 700");
             Assert.AreEqual("The operation 'minus' is invalid. You must use one of the following: + - * /", result.ErrorMessage);
         }
+
+        [TestMethod]
+        public void ComboOperatorIsCaught()
+        {
+            var result = _calc.Evaluate("2 -* 8");
+            Assert.AreEqual("The operation '-*' is invalid. You must use one of the following: + - * /", result.ErrorMessage);
+        }
     }
 }
