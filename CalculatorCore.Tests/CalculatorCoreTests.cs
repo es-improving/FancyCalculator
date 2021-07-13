@@ -58,5 +58,12 @@ namespace CalculatorCore.Tests
             var result = _calc.Evaluate("2 * 12");
             Assert.AreEqual(24m, result.Result);
         }
+
+        [TestMethod]
+        public void DoesValidationOfOperator()
+        {
+            var result = _calc.Evaluate("80 minus 700");
+            Assert.AreEqual("The operation 'minus' is invalid. You must use one of the following: + - * /", result.ErrorMessage);
+        }
     }
 }

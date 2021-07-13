@@ -25,6 +25,12 @@ namespace CalculatorCore
             }
 
             string op = expressionBits[1];
+
+            if ("+-*/".IndexOf(op) == -1)
+            {
+                return new EvaluationResult { ErrorMessage = $"The operation '{op}' is invalid. You must use one of the following: + - * /" };
+            }
+
             decimal result;
 
             switch (op)
